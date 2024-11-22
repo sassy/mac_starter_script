@@ -9,7 +9,7 @@ softwareupdate --install-rosetta --agree-to-license
 
 # 必要なツール類
 brew install --cask google-chrome
-brew install --cask item2
+brew install --cask iterm2
 brew install --cask 1password
 brew install --cask docker
 brew install --cask raycast
@@ -55,7 +55,3 @@ echo "Host github
   User git
   Port 22" >> ~/.ssh/config
 cd ../
-
-# zshのファイルを読み込む
-curl -fsSL -o .zshrc https://raw.githubusercontent.com/sassy/dotfiles/refs/heads/master/.zshrc
-source ~/.zshrc
