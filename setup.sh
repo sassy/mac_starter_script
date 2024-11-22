@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# zshのファイルを読み込む
-curl -fsSL -o .zshrc https://raw.githubusercontent.com/sassy/dotfiles/refs/heads/master/.zshrc
-source ~/.zshrc
-
 # homebrewをインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew update
-brew upgrade --all --cleanup
-brew -v
+echo 'export PATH="$PATH:/opt/homebrew/bin"' >> ~/.zshrc
+source ~/.zshrc
 
 softwareupdate --install-rosetta --agree-to-license
 
@@ -38,7 +33,8 @@ brew install tmux
 brew install --cask xcodes
 
 # anyenv update
-anyenv init
+echo 'eval "$(anyenv init -)"' >> ~/.zshrc
+source ~/.zshrc
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 anyenv update
@@ -60,3 +56,6 @@ echo "Host github
   Port 22" >> ~/.ssh/config
 cd ../
 
+# zshのファイルを読み込む
+curl -fsSL -o .zshrc https://raw.githubusercontent.com/sassy/dotfiles/refs/heads/master/.zshrc
+source ~/.zshrc
