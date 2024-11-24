@@ -22,6 +22,7 @@ brew install --cask obsidian
 brew install --cask proxyman
 brew install --cask alt-tab
 brew install --cask appcleaner
+brew install --cask spotify
 
 brew install git
 brew install awscli
@@ -41,6 +42,11 @@ source ~/.zshrc
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 anyenv update
+
+anyenv install nodenv
+anyenv install pyenv
+anyenv install rbenv
+anyenv install tfenv
 
 # githubに接続するためのsshキーの作成(生成後にコピーしてgithubに設定)
 mkdir ~/.ssh
