@@ -18,6 +18,7 @@ brew install --cask slack
 brew install --cask onyx
 brew install --cask figma
 brew install --cask notion
+brew install --cask obsidian
 brew install --cask proxyman
 brew install --cask alt-tab
 brew install --cask appcleaner
