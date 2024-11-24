@@ -20,6 +20,7 @@ brew install --cask figma
 brew install --cask notion
 brew install --cask proxyman
 brew install --cask alt-tab
+brew install --cask appcleaner
 
 brew install git
 brew install awscli
@@ -33,6 +34,7 @@ brew install tmux
 brew install --cask xcodes
 
 # anyenv update
+anyenv install --init
 echo 'eval "$(anyenv init -)"' >> ~/.zshrc
 source ~/.zshrc
 mkdir -p $(anyenv root)/plugins
