@@ -57,3 +57,6 @@ echo "Host github
   User git
   Port 22" >> ~/.ssh/config
 cd ../
+
+# .gitconfigを取得
+curl -fsSL -o .gitconfig https://raw.githubusercontent.com/sassy/dotfiles/refs/heads/master/.gitconfig
