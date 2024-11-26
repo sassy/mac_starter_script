@@ -22,6 +22,7 @@ brew install --cask obsidian
 brew install --cask proxyman
 brew install --cask alt-tab
 brew install --cask appcleaner
+brew install --cask keyboardcleantool
 brew install --cask spotify
 
 brew install git
