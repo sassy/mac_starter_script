@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # homebrewをインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -51,21 +51,25 @@ anyenv install rbenv
 anyenv install tfenv
 
 # githubに接続するためのsshキーの作成(生成後にコピーしてgithubに設定)
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-cd ~/.ssh
-ssh-keygen -t rsa
-chmod 400 ~/.ssh/id_rsa
-chmod 400 ~/.ssh/id_rsa.pub
-ssh-add ~/.ssh/id_rsa
-touch ~/.ssh/config
-chmod 600 ~/.ssh/config
-echo "Host github
-  HostName github.com
-  IdentityFile ~/.ssh/id_rsa
-  User git
-  Port 22" >> ~/.ssh/config
-cd ../
+if [ ! -d $HOME/.ssh ] ; then
+  mkdir ~/.ssh
+  chmod 700 ~/.ssh
+  cd ~/.ssh
+  ssh-keygen -t rsa
+  chmod 400 ~/.ssh/id_rsa
+  chmod 400 ~/.ssh/id_rsa.pub
+  ssh-add ~/.ssh/id_rsa
+  touch ~/.ssh/config
+  chmod 600 ~/.ssh/config
+  echo "Host github
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa
+    User git
+    Port 22" >> ~/.ssh/config
+  cd ../
+fi
 
 # .gitconfigを取得
-curl -fsSL -o .gitconfig https://raw.githubusercontent.com/sassy/dotfiles/refs/heads/master/.gitconfig
+if [ ! -e $HOME/.gitconfig ] ; then
+  curl -fsSL -o .gitconfig https://raw.githubusercontent.com/sassy/dotfiles/refs/heads/master/.gitconfig
+fi
