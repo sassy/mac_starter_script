@@ -33,6 +33,7 @@ brew install direnv
 brew install jq
 brew install gh
 brew install tmux
+brew install peco
 
 brew install --cask xcodes
 
