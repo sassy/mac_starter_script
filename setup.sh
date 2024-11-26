@@ -58,6 +58,7 @@ echo 'eval "$(sheldon source)"' >> ~/.zshrc
 source ~/.zshrc
 sheldon add zsh-completions --github zsh-users/zsh-completions
 sheldon add zsh-syntax-highlighting --github zsh-users/zsh-syntax-highlighting
+sheldon add zsh-autosuggestions --github zsh-users/zsh-autosuggestions
 sheldon source
 
 # githubに接続するためのsshキーの作成(生成後にコピーしてgithubに設定)
