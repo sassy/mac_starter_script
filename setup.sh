@@ -35,6 +35,7 @@ brew install jq
 brew install gh
 brew install tmux
 brew install peco
+brew install sheldon
 
 brew install --cask xcodes
 
@@ -50,6 +51,14 @@ anyenv install nodenv
 anyenv install pyenv
 anyenv install rbenv
 anyenv install tfenv
+
+# zshプラグインの設定
+sheldon init --shell zsh
+echo 'eval "$(sheldon source)"' >> ~/.zshrc
+source ~/.zshrc
+sheldon add zsh-completions --github zsh-users/zsh-completions
+sheldon add zsh-syntax-highlighting --github zsh-users/zsh-syntax-highlighting
+sheldon source
 
 # githubに接続するためのsshキーの作成(生成後にコピーしてgithubに設定)
 if [ ! -d $HOME/.ssh ] ; then
