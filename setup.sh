@@ -43,26 +43,30 @@ brew install sheldon
 brew install --cask xcodes
 
 # anyenv update
-anyenv install --init
-echo 'eval "$(anyenv init -)"' >> ~/.zshrc
-source ~/.zshrc
-mkdir -p $(anyenv root)/plugins
-git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-anyenv update
+if [ ! -d $HOME/.anyenv ] ; then
+  anyenv install --init
+  echo 'eval "$(anyenv init -)"' >> ~/.zshrc
+  source ~/.zshrc
+  mkdir -p $(anyenv root)/plugins
+  git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+  anyenv update
+fi
 
-anyenv install nodenv
-anyenv install pyenv
-anyenv install rbenv
-anyenv install tfenv
+if [ ! -d $HOME/.anyenv/envs/nodenv ] ; then anyenv install nodenv ; fi
+if [ ! -d $HOME/.anyenv/envs/pyenv ]  ; then anyenv install pyenv ;  fi
+if [ ! -d $HOME/.anyenv/envs/rbenv ]  ; then anyenv install rbenv ;  fi
+if [ ! -d $HOME/.anyenv/envs/tfenv ]  ; then anyenv install tfenv ;  fi
 
 # zshプラグインの設定
-sheldon init --shell zsh
-echo 'eval "$(sheldon source)"' >> ~/.zshrc
-source ~/.zshrc
-sheldon add zsh-completions --github zsh-users/zsh-completions
-sheldon add zsh-syntax-highlighting --github zsh-users/zsh-syntax-highlighting
-sheldon add zsh-autosuggestions --github zsh-users/zsh-autosuggestions
-sheldon source
+if [ ! -e $HOME/.config/sheldon/plugins.toml ] ; then
+  sheldon init --shell zsh
+  echo 'eval "$(sheldon source)"' >> ~/.zshrc
+  source ~/.zshrc
+  sheldon add zsh-completions --github zsh-users/zsh-completions
+  sheldon add zsh-syntax-highlighting --github zsh-users/zsh-syntax-highlighting
+  sheldon add zsh-autosuggestions --github zsh-users/zsh-autosuggestions
+  sheldon source
+fi
 
 # githubに接続するためのsshキーの作成(生成後にコピーしてgithubに設定)
 if [ ! -d $HOME/.ssh ] ; then
