@@ -33,8 +33,10 @@ brew install anyenv
 brew install direnv
 brew install jq
 brew install gh
+brew install tree
 brew install tmux
 brew install peco
+brew install ghq
 brew install sheldon
 
 brew install --cask xcodes
