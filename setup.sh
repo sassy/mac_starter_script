@@ -40,6 +40,11 @@ brew install peco
 brew install ghq
 brew install sheldon
 
+# cliコマンド 代替
+brew install eza
+brew install bat
+brew install fd
+
 brew install --cask xcodes
 
 # anyenv update
