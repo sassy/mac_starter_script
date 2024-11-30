@@ -39,6 +39,7 @@ brew install tmux
 brew install peco
 brew install ghq
 brew install sheldon
+brew install chezmoi
 
 # cliコマンド 代替
 brew install eza
