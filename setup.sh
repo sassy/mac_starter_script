@@ -74,22 +74,18 @@ if [ ! -e $HOME/.config/sheldon/plugins.toml ] ; then
   sheldon source
 fi
 
-# githubに接続するためのsshキーの作成(生成後にコピーしてgithubに設定)
+# githubに接続するためのsshキーは1passwordを使う
 if [ ! -d $HOME/.ssh ] ; then
   mkdir ~/.ssh
   chmod 700 ~/.ssh
+fi
+
+if [ ! -e $HOME/.ssh/config ] ; then
   cd ~/.ssh
-  ssh-keygen -t rsa
-  chmod 400 ~/.ssh/id_rsa
-  chmod 400 ~/.ssh/id_rsa.pub
-  ssh-add ~/.ssh/id_rsa
   touch ~/.ssh/config
   chmod 600 ~/.ssh/config
-  echo "Host github
-    HostName github.com
-    IdentityFile ~/.ssh/id_rsa
-    User git
-    Port 22" >> ~/.ssh/config
+  echo 'Host *
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"' >> ~/.ssh/config
   cd ../
 fi
 
