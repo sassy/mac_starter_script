@@ -40,11 +40,14 @@ brew install peco
 brew install ghq
 brew install sheldon
 brew install chezmoi
+brew install fzf
+brew install gemini-cli
 
 # cliコマンド 代替
 brew install eza
 brew install bat
 brew install fd
+brew install zoxide
 
 brew install --cask xcodes
 

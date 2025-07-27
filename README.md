@@ -14,7 +14,7 @@ $ ./setup.sh
 
 ## エディタ
 - Visual Studio Code
-  - Awesome Emacs Keymap は入れる
+  - Awesome Emacs Keymapは入れる
 
 ## ターミナル
 - iTerm2
