@@ -42,6 +42,7 @@ brew install sheldon
 brew install chezmoi
 brew install fzf
 brew install gemini-cli
+brew install asdf
 
 # cliコマンド 代替
 brew install eza
@@ -65,6 +66,16 @@ if [ ! -d $HOME/.anyenv/envs/nodenv ] ; then anyenv install nodenv ; fi
 if [ ! -d $HOME/.anyenv/envs/pyenv ]  ; then anyenv install pyenv ;  fi
 if [ ! -d $HOME/.anyenv/envs/rbenv ]  ; then anyenv install rbenv ;  fi
 if [ ! -d $HOME/.anyenv/envs/tfenv ]  ; then anyenv install tfenv ;  fi
+
+# asdf install
+if [ ! -d $HOME/.asdf ] ; then 
+  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+  source ${ZDOTDIR:-~}/.zshrc
+  asdf plugin update --all
+fi
+
+if [ ! -d $HOME/.asdf/plugins/python/ ] ; then asdf plugin add python ; fi
+
 
 # zshプラグインの設定
 if [ ! -e $HOME/.config/sheldon/plugins.toml ] ; then
